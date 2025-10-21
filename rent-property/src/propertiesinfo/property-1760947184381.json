@@ -1,0 +1,25 @@
+{
+  "id": 1760947184381,
+  "name": "I-8 Plot in Markaz",
+  "contact": "3456789056789",
+  "email": "maria@gmail.com",
+  "location": "islamabad",
+  "sector": "I-8",
+  "description": "Near Super market ,good  Location , cuting prefect, on Margallah Avenue",
+  "mediaType": "imageGallery",
+  "highlight": false,
+  "discountEnabled": false,
+  "discountPercent": 0,
+  "priceRegular": "",
+  "price": "350,00,000 ",
+  "priceDiscounted": "",
+  "priceNote": "Limited time",
+  "images": [
+    "/uploads/1760947184375-img1.jpeg",
+    "/uploads/1760947184377-img2.jpeg",
+    "/uploads/1760947184379-img3.jpeg"
+  ],
+  "video": null,
+  "poster": null,
+  "createdAt": "2025-10-20T07:59:44.381Z"
+}

@@ -1,0 +1,216 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+:root {
+  --background: 255 255 255;
+  --foreground: 37 37 37;
+  --card: 255 255 255;
+  --card-foreground: 37 37 37;
+  --primary: 52 52 52;
+  --primary-foreground: 251 251 251;
+  --secondary: 247 247 247;
+  --secondary-foreground: 52 52 52;
+  --muted: 247 247 247;
+  --muted-foreground: 142 142 142;
+  --accent: 247 247 247;
+  --accent-foreground: 52 52 52;
+  --destructive: 239 68 68;
+  --destructive-foreground: 248 250 252;
+  --border: 235 235 235;
+  --input: 235 235 235;
+  --ring: 180 180 180;
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: 37 37 37;
+  --foreground: 251 251 251;
+  --card: 37 37 37;
+  --card-foreground: 251 251 251;
+  --primary: 251 251 251;
+  --primary-foreground: 52 52 52;
+  --secondary: 68 68 68;
+  --secondary-foreground: 251 251 251;
+  --muted: 68 68 68;
+  --muted-foreground: 180 180 180;
+  --accent: 68 68 68;
+  --accent-foreground: 251 251 251;
+  --destructive: 127 29 29;
+  --destructive-foreground: 248 250 252;
+  --border: 68 68 68;
+  --input: 68 68 68;
+  --ring: 112 112 112;
+}
+
+* {
+  border-color: rgb(var(--border));
+}
+
+body {
+  background-color: rgb(var(--background));
+  color: rgb(var(--foreground));
+  font-family: 'Inter', sans-serif;
+}
+
+/* Font Classes */
+.font-inter {
+  font-family: 'Inter', sans-serif;
+}
+
+.font-playfair {
+  font-family: 'Playfair Display', serif;
+}
+
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+@keyframes float-medium {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+}
+@keyframes float-fast {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+.animate-float-slow { animation: float-slow 8s ease-in-out infinite; }
+.animate-float-medium { animation: float-medium 6s ease-in-out infinite; }
+.animate-float-fast { animation: float-fast 4s ease-in-out infinite; }
+
+/* Custom hexagon clip */
+.clip-hex {
+  clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
+}
+
+/* Custom animations */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s ease-out forwards;
+}
+
+.animation-delay-200 {
+  animation-delay: 0.2s;
+}
+
+.animation-delay-400 {
+  animation-delay: 0.4s;
+}
+
+.animation-delay-600 {
+  animation-delay: 0.6s;
+}
+
+.animation-delay-800 {
+  animation-delay: 0.8s;
+}
+
+@keyframes slide-in-right {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+
+.animate-slide-in-right {
+  animation: slide-in-right 1.5s ease-out;
+}
+
+.hero-image-slide {
+  transition: transform 1000ms ease-out;
+}
+
+.hero-image-slide:hover {
+  transform: translateX(20px);
+}
+
+/* Custom utility classes */
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.floating-contacts {
+  position: fixed;
+  right: 2px;
+  top: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 9999;
+}
+
+.floating-btn {
+  display: grid;
+  place-items: center;
+ 
+  
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+
+
+
+@media (max-width: 420px) {
+  .floating-contacts { right: 12px; bottom: 12px; gap: 10px; }
+}
+
+
+/* keep a bit higher on very small screens with bottom bars */
+@media (max-width: 420px) {
+  .floating-contacts { right: 12px; bottom: 12px; gap: 10px; }
+}
+
+
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1536px;
+  }
+}

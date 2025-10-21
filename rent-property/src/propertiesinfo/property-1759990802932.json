@@ -1,0 +1,27 @@
+{
+  "id": 1759990802932,
+  "name": "4 BedRoom Luxury Apartment",
+  "contact": "031222583405",
+  "email": "IT@gmail.com",
+  "location": "islamabad",
+  "sector": "G-13",
+  "description": "City Centre G-13 Islamabad\r\n\r\n2-bedroom apartment with one AC",
+  "mediaType": "imageGallery",
+  "highlight": true,
+  "discountEnabled": true,
+  "discountPercent": 50,
+  "priceRegular": "20000",
+  "price": "",
+  "priceDiscounted": "10000",
+  "priceNote": "Available",
+  "images": [
+    "/uploads/1760340508028-img12.jpeg",
+    "/uploads/1761022760360-img2.jpeg",
+    "/uploads/1761022760363-img3.jpeg",
+    "/uploads/1761022760366-img4.jpeg",
+    "/uploads/1761022760370-img5.jpeg"
+  ],
+  "video": null,
+  "poster": null,
+  "createdAt": "2025-10-21T04:59:20.374Z"
+}

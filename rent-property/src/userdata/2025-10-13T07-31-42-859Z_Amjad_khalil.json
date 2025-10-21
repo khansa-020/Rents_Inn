@@ -1,0 +1,16 @@
+{
+  "createdAt": "2025-10-13T07:31:42.859Z",
+  "booking": {
+    "checkIn": {
+      "date": "2025-10-13",
+      "time": "12:45 PM"
+    },
+    "checkOut": {
+      "date": "2025-10-14",
+      "time": "12:45 PM"
+    },
+    "guests": 1,
+    "name": "Amjad khalil",
+    "mobile": "03217845673"
+  }
+}

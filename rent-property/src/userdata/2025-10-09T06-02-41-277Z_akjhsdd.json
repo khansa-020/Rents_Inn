@@ -1,0 +1,16 @@
+{
+  "createdAt": "2025-10-09T06:02:41.277Z",
+  "booking": {
+    "checkIn": {
+      "date": "2025-10-09",
+      "time": "11:15 AM"
+    },
+    "checkOut": {
+      "date": "2025-10-10",
+      "time": "11:15 AM"
+    },
+    "guests": 1,
+    "name": "akjhsdd",
+    "mobile": "03215923450"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "mediaType": "imageGallery",
+  "name": "NEW CITY",
+  "location": "block D ",
+  "images": [
+  "/uploads/img9.jpeg",
+  "/uploads/img10.jpeg",
+  "/uploads/img11.jpeg"
+  ],
+  "video": "/uploads/Apartment1.mp4",
+  "description": "appartment 4 room",
+  "highlight": false,
+  "discountEnabled": false,
+  "discountPercent": 0,
+  "price": "PKR 14,500/Day",
+  "priceDiscounted": "",
+  "priceNote": "",
+  "id": 1759995716910,
+  "createdAt": "2025-10-09T07:41:56.910Z"
+}

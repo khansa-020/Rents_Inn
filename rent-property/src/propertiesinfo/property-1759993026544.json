@@ -1,0 +1,20 @@
+{
+    "mediaType": "imageGallery",
+    "highlight": false,
+    "discountPercent": 20,
+    "priceNote": "Limited Time",
+    "poster": "/videos/villa-poster.jpg",
+    "video": "/videos/villa.mp4",
+    "images": [
+      "/uploads/img5.jpeg",
+      "/uploads/img7.jpeg",
+      "/uploads/img8.jpeg"
+    ],
+    "name": "Luxury Beachfront Villa",
+    "location": "Dubai Marina, UAE",
+    "description": "A stunning 5-bedroom villa with private pool and sea view.",
+    "price": "$1,200 ",
+    "priceRegular": "$1,500 ",
+    "priceDiscounted": "$1,200",
+    "createdAt": "2025-10-09T08:00:00.000Z"
+  }

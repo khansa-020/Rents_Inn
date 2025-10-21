@@ -1,0 +1,16 @@
+{
+  "createdAt": "2025-10-09T06:51:56.006Z",
+  "booking": {
+    "checkIn": {
+      "date": "2025-10-09",
+      "time": "12:00 PM"
+    },
+    "checkOut": {
+      "date": "2025-10-10",
+      "time": "12:00 PM"
+    },
+    "guests": 1,
+    "name": "mnbvc",
+    "mobile": "2345678987654"
+  }
+}
