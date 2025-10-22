@@ -41,14 +41,16 @@ export default function LoginPage() {
   } else {
     console.log('Token missing in response');
   }
-        if (data.role === 'admin') {
-          console.log('redirecting to admin...')
-          router.push('/admin')
-        } else {
-          login(data.user)
-          console.log('redirecting to /user/dashboard...')
-          router.push('/user/dashboard')
-        }
+        setTimeout(() => {
+    if (data.role === 'admin') {
+      localStorage.setItem('role', data.role); // ✅ save role
+      router.push('/admin');
+    } else {
+      login(data.user);
+      router.push('/user/dashboard');
+    }
+  }, 300); // 0.3 second delay fixes the jump
+
       } else {
         setError('Invalid email or password.')
       }

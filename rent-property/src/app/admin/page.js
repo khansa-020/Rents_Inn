@@ -34,14 +34,21 @@ export default function AdminPage() {
 
 
   // 🔐 Client-side guard
-  useEffect(() => {
-    const ok =
-      typeof window !== 'undefined' &&
-      sessionStorage.getItem('adminAuthed') === '1'
-    if (!ok) router.replace('/')
-  }, [router])
+  // useEffect(() => {
+  //   const ok =
+  //     typeof window !== 'undefined' &&
+  //     sessionStorage.getItem('adminAuthed') === '1'
+  //   if (!ok) router.replace('/')
+  // }, [router])
 
+useEffect(() => {
+  const token = localStorage.getItem('token')
+  const role = localStorage.getItem('role')
 
+  if (!token || role !== 'admin') {
+    router.replace('/user/login')
+  }
+}, [router])
 
 
   // fetch files from API routes
@@ -184,10 +191,17 @@ export default function AdminPage() {
   }, [query, properties])
 
 
-  const logout = () => {
-    sessionStorage.removeItem('adminAuthed')
-    router.replace('/')
+  // const logout = () => {
+  //   sessionStorage.removeItem('adminAuthed')
+  //   router.replace('/')
+  // }
+const logout = () => {
+    // logout()
+    localStorage.removeItem('token')
+    document.cookie = 'token=; path=/; max-age=0;'
+    router.push('/user/login')
   }
+
 
   return (
     <main className={`${mulish.className} min-h-screen bg-slate-900 text-white`}>
