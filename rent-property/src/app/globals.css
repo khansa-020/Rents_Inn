@@ -61,6 +61,28 @@ body {
   font-family: 'Playfair Display', serif;
 }
 
+/* 🌑 Dark dropdown */
+.filters select,
+.filters select option {
+  background-color: #0f172a;
+  color: white;
+}
+
+.filters select:focus option {
+  background-color: #1e293b;
+}
+
+
+/* ⚪ Light dropdown */
+.select-light,
+.select-light option {
+  background-color: white;
+  color: #0f172a;
+}
+.select-light:focus option {
+  background-color: #f8fafc;
+}
+
 
 @keyframes float-slow {
   0%, 100% { transform: translateY(0px); }

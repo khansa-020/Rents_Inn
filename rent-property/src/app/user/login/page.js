@@ -57,6 +57,7 @@ export default function LoginPage() {
       setError('Something went wrong. Please try again.')
     }
   }
+  
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-slate-900 p-4">
