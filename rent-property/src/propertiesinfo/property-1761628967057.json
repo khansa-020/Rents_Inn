@@ -1,0 +1,24 @@
+{
+  "id": 1761628967057,
+  "name": "Mountain view Flats",
+  "contact": "03216083982",
+  "email": "kh@gmail.com",
+  "location": "islamabad",
+  "sector": "D-12",
+  "description": "luxury 3 rooms flats with hills view and furnished lawn",
+  "priceType": "Per Month",
+  "mediaType": "imageGallery",
+  "highlight": false,
+  "discountEnabled": true,
+  "discountPercent": 30,
+  "priceRegular": "80000",
+  "priceDiscounted": "56000",
+  "priceNote": "Available for rent",
+  "images": [
+    "/uploads/1761628967053-img1.jpeg",
+    "/uploads/1761628967055-img2.jpeg"
+  ],
+  "video": null,
+  "poster": null,
+  "createdAt": "2025-10-28T05:22:47.057Z"
+}
