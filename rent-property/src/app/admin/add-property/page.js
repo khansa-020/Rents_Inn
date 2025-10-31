@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
-import Link from 'next/link'   // ✅ import Link
+import Link from 'next/link'
+import toast, { Toaster } from 'react-hot-toast' // ✅ toaster
 
 export default function AddPropertyPage() {
   const router = useRouter()
@@ -25,7 +26,7 @@ export default function AddPropertyPage() {
     priceDiscounted: '',
     price: '',
     priceNote: '',
-    priceType: 'Per Day' // ✅ new dropdown
+    priceType: 'Per Day'
   })
 
   // ✅ Auto-calculate discounted price logic
@@ -43,6 +44,57 @@ export default function AddPropertyPage() {
   const handleSubmit = async (e) => {
     e.preventDefault()
 
+    // ✅ CHECKS
+
+    // Check name (at least 3 chars)
+    if (newProperty.name.trim().length < 3) {
+      toast.error('Name must be at least 3 characters')
+      return
+    }
+
+    // Phone regex Pakistan (03xxxxxxxxx)
+    const phoneRegex = /^03[0-9]{9}$/
+    if (!phoneRegex.test(newProperty.contact)) {
+      toast.error('Phone must be valid Pakistani number (03XXXXXXXXX)')
+      return
+    }
+
+    // Ensure not both highlight & discount
+    if (newProperty.highlight && newProperty.discountEnabled) {
+      toast.error('Choose only one: Highlight OR Discount')
+      return
+    }
+
+    // If discount enabled ensure % and price present
+    if (newProperty.discountEnabled && (!newProperty.discountPercent || !newProperty.priceRegular)) {
+      toast.error('Enter discount percent and regular price')
+      return
+    }
+
+    // Required fields check
+    const requiredFields = [
+      'name', 'email', 'contact', 'location', 'sector', 'description', 'priceType'
+    ]
+
+    for (let field of requiredFields) {
+      if (!newProperty[field] || newProperty[field] === '') {
+        toast.error(`Please fill ${field}`)
+        return
+      }
+    }
+
+    // Image/video requirement
+    if (newProperty.mediaType === 'imageGallery' && newProperty.images.length === 0) {
+      toast.error('Please upload at least 1 image')
+      return
+    }
+
+    if (newProperty.mediaType === 'video' && (!newProperty.video || !newProperty.poster)) {
+      toast.error('Please upload video and poster image')
+      return
+    }
+
+    // ✅ FormData continues (your code)
     const formData = new FormData()
     formData.append('mediaType', newProperty.mediaType)
     formData.append('name', newProperty.name)
@@ -58,7 +110,7 @@ export default function AddPropertyPage() {
     formData.append('price', newProperty.price)
     formData.append('priceDiscounted', newProperty.priceDiscounted)
     formData.append('priceNote', newProperty.priceNote)
-    formData.append('priceType', newProperty.priceType) // ✅ added
+    formData.append('priceType', newProperty.priceType)
 
     if (newProperty.images.length > 0) {
       newProperty.images.forEach((file) => {
@@ -66,13 +118,8 @@ export default function AddPropertyPage() {
       })
     }
 
-    if (newProperty.video) {
-      formData.append('video', newProperty.video)
-    }
-
-    if (newProperty.poster) {
-      formData.append('poster', newProperty.poster)
-    }
+    if (newProperty.video) formData.append('video', newProperty.video)
+    if (newProperty.poster) formData.append('poster', newProperty.poster)
 
     try {
       const res = await fetch('/api/admin/properties/', {
@@ -81,14 +128,14 @@ export default function AddPropertyPage() {
       })
       const data = await res.json()
       if (data.ok) {
-        alert('Property saved successfully')
-        router.refresh()
+        toast.success('Property saved successfully')
+        setTimeout(() => router.refresh(), 1200)
       } else {
-        alert('Failed to save property')
+        toast.error('Failed to save property')
       }
     } catch (err) {
       console.error('Save error:', err)
-      alert('Error saving property')
+      toast.error('Error saving property')
     }
   }
 
@@ -108,6 +155,8 @@ export default function AddPropertyPage() {
   }
 
   return (
+    <>
+      <Toaster position="top-right" />  {/* ✅ toaster UI */}
     <div className='bg-slate-900'>
       <div className="flex justify-end px-8 pt-6">
         <Link
@@ -377,5 +426,6 @@ export default function AddPropertyPage() {
       </form>
     </main>
     </div>
+      </>     
   )
 }

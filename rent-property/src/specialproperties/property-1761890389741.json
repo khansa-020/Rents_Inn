@@ -8,7 +8,7 @@
   "description": ",mnbvcxytrdsa",
   "priceType": "Per Day",
   "mediaType": "video",
-  "highlight": true,
+  "highlight": false,
   "discountEnabled": true,
   "discountPercent": 40,
   "priceRegular": "98000",

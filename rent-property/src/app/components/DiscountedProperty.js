@@ -1,10 +1,12 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import { useBooking } from '../../context/BookingContext'
 
 export default function DiscountedPropertySection() {
   const [property, setProperty] = useState(null)
   const [currentIndex, setCurrentIndex] = useState(0) // ✅ for image slider
+  const { openBooking } = useBooking()
 
   useEffect(() => {
     const fetchProperty = async () => {
@@ -122,8 +124,10 @@ export default function DiscountedPropertySection() {
 
         {/* Buttons */}
         <div className="flex flex-col sm:flex-row gap-4">
-          <button className="group relative bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 px-10 py-4 rounded-xl text-base font-bold transition-all duration-300 shadow-xl hover:shadow-2xl hover:shadow-blue-500/50 transform hover:-translate-y-1 active:translate-y-0 overflow-hidden">
-            <span className="relative z-10 flex items-center justify-center gap-2">
+          <button 
+          onClick={() => openBooking(property)}
+           className="group relative bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 px-10 py-4 rounded-xl text-base font-bold transition-all duration-300 shadow-xl hover:shadow-2xl hover:shadow-blue-500/50 transform hover:-translate-y-1 active:translate-y-0 overflow-hidden">
+            <span className="relative z-10 flex items-center justify-center gap-2" >
               Book Now
               <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />

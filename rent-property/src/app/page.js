@@ -26,7 +26,8 @@ export default function Home() {
       </section>
       
       <HeroSection />
-      <BookingSection/>
+      <section id="booking-section"><BookingSection /></section>
+      {/* <BookingSection/> */}
       <DiscountedProperty/>
       <SpecialProperties/>
       <PropertiesSection />

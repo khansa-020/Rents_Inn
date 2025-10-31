@@ -1,0 +1,27 @@
+{
+  "id": 1761901764546,
+  "name": "wertyhjkjhcx",
+  "contact": "03213456872",
+  "email": "kh@gmail.com",
+  "location": "islamabad",
+  "sector": "D-12",
+  "description": "dfghj sdfghjklkjhg ghjkf dfghjk dfvgbn",
+  "priceType": "Per Year",
+  "mediaType": "imageGallery",
+  "highlight": false,
+  "discountEnabled": true,
+  "discountPercent": 30,
+  "priceRegular": "88000",
+  "price": "880000",
+  "priceDiscounted": "61600",
+  "priceNote": "available",
+  "images": [
+    "/uploads/1761901764531-img1.jpeg",
+    "/uploads/1761901764534-img2.jpeg",
+    "/uploads/1761901764540-img3.jpeg",
+    "/uploads/1761901764544-img4.jpeg"
+  ],
+  "video": null,
+  "poster": null,
+  "createdAt": "2025-10-31T09:09:24.546Z"
+}

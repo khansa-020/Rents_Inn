@@ -19,6 +19,7 @@
     "react": "19.1.0",
     "react-datepicker": "^8.4.0",
     "react-dom": "19.1.0",
+    "react-hot-toast": "^2.6.0",
     "react-icons": "^5.5.0",
     "swiper": "^12.0.2"
   },
@@ -29,6 +30,7 @@
     "@types/react": "19.1.9",
     "eslint": "^9",
     "eslint-config-next": "15.4.5",
+    "ngrok": "^5.0.0-beta.2",
     "tailwindcss": "^4"
   }
 }

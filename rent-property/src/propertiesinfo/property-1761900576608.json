@@ -1,0 +1,24 @@
+{
+  "id": 1761900576608,
+  "name": "Mountaoin Villa ",
+  "contact": "03091265453",
+  "email": "kh@gmail.com",
+  "location": "Islamabad",
+  "sector": "E-11",
+  "description": " xcvbnm xcvbn dfghjk chj fghj fghjk ertyuio",
+  "priceType": "Per Month",
+  "mediaType": "imageGallery",
+  "highlight": false,
+  "discountEnabled": false,
+  "discountPercent": 0,
+  "priceRegular": "",
+  "priceDiscounted": "48000",
+  "priceNote": "available",
+  "images": [
+    "/uploads/1761900576604-img1.jpeg",
+    "/uploads/1761900576606-img2.jpeg"
+  ],
+  "video": null,
+  "poster": null,
+  "createdAt": "2025-10-31T08:49:36.608Z"
+}
