@@ -1,0 +1,25 @@
+{
+  "id": 1761647275381,
+  "name": "new city appartment",
+  "contact": "234567890",
+  "email": "kh@gmail.com",
+  "location": "islamabad",
+  "sector": "G-11",
+  "description": "sdfghjk",
+  "priceType": "Per Month",
+  "mediaType": "imageGallery",
+  "highlight": false,
+  "discountEnabled": true,
+  "discountPercent": 10,
+  "price": "450000",
+  "priceDiscounted": "405000",
+  "priceNote": "as",
+  "images": [
+    "/uploads/1761647275375-img1.jpeg",
+    "/uploads/1761647275377-img2.jpeg",
+    "/uploads/1761647275380-img3.jpeg"
+  ],
+  "video": null,
+  "poster": null,
+  "createdAt": "2025-10-28T10:27:55.381Z"
+}

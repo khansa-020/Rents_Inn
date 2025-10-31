@@ -1,0 +1,24 @@
+{
+  "id": 1761886933881,
+  "name": "your Dream House",
+  "contact": "02357483290",
+  "email": "kh@gmail.com",
+  "location": "islamabad",
+  "sector": "I-9",
+  "description": "Two Furnished rooms , with kitchen and Lawn",
+  "priceType": "Per Month",
+  "mediaType": "imageGallery",
+  "highlight": true,
+  "discountEnabled": true,
+  "discountPercent": 30,
+  "priceRegular": "98000",
+  "priceDiscounted": "68600",
+  "priceNote": "Available",
+  "images": [
+    "/uploads/1761886933877-img12.jpeg",
+    "/uploads/1761886933880-img13.jpg"
+  ],
+  "video": null,
+  "poster": null,
+  "createdAt": "2025-10-31T05:02:13.881Z"
+}

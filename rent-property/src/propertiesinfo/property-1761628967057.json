@@ -8,7 +8,7 @@
   "description": "luxury 3 rooms flats with hills view and furnished lawn",
   "priceType": "Per Month",
   "mediaType": "imageGallery",
-  "highlight": false,
+  "highlight": true,
   "discountEnabled": true,
   "discountPercent": 30,
   "priceRegular": "80000",
@@ -20,5 +20,6 @@
   ],
   "video": null,
   "poster": null,
-  "createdAt": "2025-10-28T05:22:47.057Z"
+  "createdAt": "2025-10-28T05:22:47.057Z",
+  "updatedAt": "2025-10-28T11:17:29.063Z"
 }

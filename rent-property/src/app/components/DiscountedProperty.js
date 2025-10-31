@@ -4,15 +4,15 @@ import { useEffect, useState } from 'react'
 
 export default function DiscountedPropertySection() {
   const [property, setProperty] = useState(null)
+  const [currentIndex, setCurrentIndex] = useState(0) // ✅ for image slider
 
   useEffect(() => {
     const fetchProperty = async () => {
       try {
-        const res = await fetch('/api/admin/properties')
+        const res = await fetch('/api/admin/addspecialproperty')
         const data = await res.json()
 
         if (data.ok && Array.isArray(data.data)) {
-          // pick first one with both discount and highlight
           const featured = data.data.find(
             (p) => p.discountEnabled === true && p.highlight === true
           )
@@ -26,6 +26,16 @@ export default function DiscountedPropertySection() {
     fetchProperty()
   }, [])
 
+  // ✅ Auto change images every 30 seconds
+  useEffect(() => {
+    if (property?.images?.length > 1) {
+      const interval = setInterval(() => {
+        setCurrentIndex(prev => (prev + 1) % property.images.length)
+      }, 5000)
+      return () => clearInterval(interval)
+    }
+  }, [property])
+
   if (!property) {
     return (
       <section className="py-12 text-center text-gray-500 bg-gray-50">
@@ -36,13 +46,27 @@ export default function DiscountedPropertySection() {
 
   return (
     <section className="relative w-full h-[500px] md:h-[600px] overflow-hidden shadow-2xl my-12 rounded-2xl">
-      {/* Background Image with zoom effect */}
-      <div className="absolute inset-0 transition-transform duration-[8s] ease-out hover:scale-110">
-        <img
-          src={property.images?.[0] || '/placeholder.jpg'}
-          alt={property.name || 'Discounted Property'}
-          className="w-full h-full object-cover"
-        />
+
+      {/* ✅ Background Image/Video Slider - No UI change */}
+      <div className="absolute inset-0 transition-transform duration-[2s] ease-out hover:scale-110">
+        {property.mediaType === 'video' && property.videoUrl ? (
+          <video
+            src={property.videoUrl}
+            autoPlay
+            muted
+            loop
+            className="w-full h-full object-cover"
+          />
+        ) : (
+          Array.isArray(property.images) && property.images.length > 0 && (
+            <img
+              key={currentIndex}
+              src={property.images[currentIndex]}
+              alt={property.name || 'Discounted Property'}
+              className="w-full h-full object-cover"
+            />
+          )
+        )}
       </div>
 
       {/* Enhanced Gradient Overlay */}
@@ -50,7 +74,8 @@ export default function DiscountedPropertySection() {
 
       {/* Content */}
       <div className="absolute inset-0 flex flex-col justify-center items-start px-8 md:px-16 lg:px-24 text-white">
-        {/* Discount Badge with glow */}
+
+        {/* Discount Badge */}
         <div className="relative mb-5">
           <div className="absolute inset-0 bg-red-500 blur-xl opacity-50 rounded-full" />
           <div className="relative bg-gradient-to-r from-red-600 to-red-500 px-5 py-2 rounded-full text-sm md:text-base font-bold shadow-2xl border border-red-400/50">
@@ -58,12 +83,12 @@ export default function DiscountedPropertySection() {
           </div>
         </div>
 
-        {/* Property Name */}
+        {/* Name */}
         <h2 className="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-4 drop-shadow-2xl max-w-4xl leading-tight">
           {property.name || 'Discounted Property'}
         </h2>
 
-        {/* Description with glass effect */}
+        {/* Description */}
         <div className="mb-6 max-w-2xl backdrop-blur-sm bg-white/5 p-4 rounded-xl border border-white/10">
           <p className="text-base md:text-lg text-gray-100 leading-relaxed">
             {property.description || 'Exclusive offer on this highlighted property!'}
@@ -87,11 +112,15 @@ export default function DiscountedPropertySection() {
             <p className="text-3xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-500 drop-shadow-lg">
               {property.priceDiscounted || property.price || 'Not Available'}
             </p>
-            <span className="text-gray-300 text-sm">per night</span>
+
+            {/* ✅ Show selected price type instead of "per night" */}
+            <span className="text-gray-300 text-sm">
+              {property.priceType || 'Per Day'}
+            </span>
           </div>
         </div>
 
-        {/* CTA Buttons */}
+        {/* Buttons */}
         <div className="flex flex-col sm:flex-row gap-4">
           <button className="group relative bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 px-10 py-4 rounded-xl text-base font-bold transition-all duration-300 shadow-xl hover:shadow-2xl hover:shadow-blue-500/50 transform hover:-translate-y-1 active:translate-y-0 overflow-hidden">
             <span className="relative z-10 flex items-center justify-center gap-2">
@@ -100,7 +129,6 @@ export default function DiscountedPropertySection() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
               </svg>
             </span>
-            {/* Shimmer effect */}
             <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
           </button>
 
@@ -114,7 +142,7 @@ export default function DiscountedPropertySection() {
           </button>
         </div>
 
-        {/* Urgency indicator */}
+        {/* Timer */}
         <div className="mt-6 flex items-center gap-2 text-yellow-300 text-sm animate-pulse">
           <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
             <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
@@ -123,7 +151,6 @@ export default function DiscountedPropertySection() {
         </div>
       </div>
 
-      {/* Decorative accents */}
       <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-blue-500/20 via-purple-500/10 to-transparent rounded-bl-full blur-2xl" />
       <div className="absolute bottom-0 left-0 w-64 h-64 bg-gradient-to-tr from-green-500/20 via-emerald-500/10 to-transparent rounded-tr-full blur-2xl" />
     </section>

@@ -5,14 +5,14 @@
   "email": "kh@gmail.com",
   "location": "islamabad",
   "sector": "H-8",
-  "description": "sdf jhgfd jhgfd jhgf mnbv",
+  "description": "jhgfdsa jhgfds lkjhgfdsaKJHGFDS JHGF",
   "priceType": "Per Month",
   "mediaType": "imageGallery",
-  "highlight": false,
-  "discountEnabled": false,
-  "discountPercent": 0,
-  "priceRegular": "",
-  "priceDiscounted": "45000",
+  "highlight": true,
+  "discountEnabled": true,
+  "discountPercent": 20,
+  "priceRegular": "80000",
+  "priceDiscounted": "64000",
   "priceNote": "Available",
   "images": [
     "/uploads/1761629077401-img7.jpeg",
@@ -20,5 +20,6 @@
   ],
   "video": null,
   "poster": null,
-  "createdAt": "2025-10-28T05:24:37.406Z"
+  "createdAt": "2025-10-28T05:24:37.406Z",
+  "updatedAt": "2025-10-28T11:18:42.629Z"
 }

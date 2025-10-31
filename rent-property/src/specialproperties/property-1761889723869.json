@@ -1,0 +1,22 @@
+{
+  "id": 1761889723869,
+  "name": "Dream Rent House",
+  "contact": "032152876543",
+  "email": "kh@gmail.com",
+  "location": "Islamabad",
+  "sector": "I-9",
+  "description": "Furnished rooms with inDoor Kitchen and Lawn",
+  "priceType": "Per Year",
+  "mediaType": "video",
+  "highlight": false,
+  "discountEnabled": true,
+  "discountPercent": 40,
+  "priceRegular": "98000",
+  "price": "",
+  "priceDiscounted": "58800",
+  "priceNote": "Available for rent",
+  "images": [],
+  "video": "/uploads/1761889723861-Apartment1.mp4",
+  "poster": "/uploads/1761889723867-img10.jpeg",
+  "createdAt": "2025-10-31T05:48:43.869Z"
+}

@@ -5,9 +5,9 @@ import { usePathname } from 'next/navigation'
 
 const links = [
   { name: 'Dashboard', href: '/user/dashboard' },
-  { name: 'Users', href: 'user/dashboard/users' },
+  { name: 'Profile', href: 'user/dashboard/viewProfile' },
   { name: 'MyProperties', href: '/user/dashboard/properties' },
-  { name: 'Settings', href: 'user/dashboard/settings' },
+  { name: 'Favrioutes', href: 'user/dashboard/favrioute' },
 ]
 
 export default function Sidebar() {

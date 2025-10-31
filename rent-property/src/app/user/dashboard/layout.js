@@ -3,7 +3,7 @@ import UserMenu from '../../components/UserMenu'
 
 export default function DashboardLayout({ children }) {
   return (
-    <div className="flex min-h-screen bg-gray-700">
+    <div className="flex min-h-screen bg-gray-800">
       <div className="w-64 fixed top-0 left-0 h-screen">
         <Sidebar />
       </div>
