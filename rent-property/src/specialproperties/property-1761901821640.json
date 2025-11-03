@@ -8,7 +8,7 @@
   "description": "dfghj sdfghjklkjhg ghjkf dfghjk dfvgbn",
   "priceType": "Per Year",
   "mediaType": "imageGallery",
-  "highlight": true,
+  "highlight": false,
   "discountEnabled": true,
   "discountPercent": 30,
   "priceRegular": "88000",

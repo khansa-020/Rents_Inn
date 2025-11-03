@@ -1,0 +1,24 @@
+{
+  "id": 1762159966441,
+  "name": "trew rewa cx",
+  "contact": "03214567893",
+  "email": "kh@gmailk.com",
+  "location": "hgfd",
+  "sector": "hgfd",
+  "description": "jhgtrfws",
+  "priceType": "Per Day",
+  "mediaType": "imageGallery",
+  "highlight": false,
+  "discountEnabled": true,
+  "discountPercent": 23,
+  "priceRegular": "276543",
+  "priceDiscounted": "212938",
+  "priceNote": "availa",
+  "images": [
+    "/uploads/1762159966432-img1.jpeg",
+    "/uploads/1762159966437-img2.jpeg"
+  ],
+  "video": null,
+  "poster": null,
+  "createdAt": "2025-11-03T08:52:46.441Z"
+}

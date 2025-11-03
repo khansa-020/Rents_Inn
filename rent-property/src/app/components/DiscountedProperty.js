@@ -79,8 +79,8 @@ export default function DiscountedPropertySection() {
 
         {/* Discount Badge */}
         <div className="relative mb-5">
-          <div className="absolute inset-0 bg-red-500 blur-xl opacity-50 rounded-full" />
-          <div className="relative bg-gradient-to-r from-red-600 to-red-500 px-5 py-2 rounded-full text-sm md:text-base font-bold shadow-2xl border border-red-400/50">
+          <div className="absolute inset-0 bg-mint-800 blur-xl opacity-70 rounded-full" />
+          <div className="relative bg-gradient-to-r from-slate-950 to-slate-900 px-5 py-2 rounded-full text-sm md:text-base font-bold shadow-2xl border border-blue-400/50">
             <span className="drop-shadow-lg">🔥 {property.discountPercent}% OFF</span>
           </div>
         </div>
@@ -104,14 +104,14 @@ export default function DiscountedPropertySection() {
               <p className="text-gray-300 line-through text-xl md:text-2xl font-medium opacity-75">
                 {property.priceRegular}
               </p>
-              <span className="bg-yellow-400 text-yellow-900 text-xs font-bold px-2 py-1 rounded">
+              <span className="bg-[#450693] text-white-900 text-xs font-bold px-4 py-1 rounded">
                 SAVE {property.discountPercent}%
               </span>
             </div>
           )}
 
           <div className="flex items-baseline gap-3">
-            <p className="text-3xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-500 drop-shadow-lg">
+            <p className="text-3xl md:text-5xl font-black text-transparent bg-clip-text bg-[#78B9B5] drop-shadow-lg">
               {property.priceDiscounted || property.price || 'Not Available'}
             </p>
 
@@ -126,8 +126,8 @@ export default function DiscountedPropertySection() {
         <div className="flex flex-col sm:flex-row gap-4">
           <button 
           onClick={() => openBooking(property)}
-           className="group relative bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 px-10 py-4 rounded-xl text-base font-bold transition-all duration-300 shadow-xl hover:shadow-2xl hover:shadow-blue-500/50 transform hover:-translate-y-1 active:translate-y-0 overflow-hidden">
-            <span className="relative z-10 flex items-center justify-center gap-2" >
+           className="group relative bg-[#01F5FF] hover:from-blue-700 hover:to-blue-600 px-10 py-4 rounded-xl font-bold transition-all duration-300 shadow-xl hover:shadow-2xl hover:shadow-blue-500/50 transform hover:-translate-y-1 active:translate-y-0 overflow-hidden">
+            <span className="relative z-10 flex text-black items-center justify-center gap-2" >
               Book Now
               <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />

@@ -1,14 +1,15 @@
 {
   "mediaType": "imageGallery",
-  "name": "NEW CITY",
-  "location": "block D ",
+  "name": "House For Rent",
+  "location": "New City",
+  "sector":"D block",
   "images": [
   "/uploads/img9.jpeg",
   "/uploads/img10.jpeg",
   "/uploads/img11.jpeg"
   ],
   "video": "/uploads/Apartment1.mp4",
-  "description": "appartment 4 room",
+  "description": "House renting of 2 king-size bedrooms, a cozy TV lounge with 55  TV, 100 Mbps Wi-Fi, a fully equipped kitchen, a dining area, 2 bathrooms, a patio. private entrance and a private parking",
   "highlight": false,
   "discountEnabled": false,
   "discountPercent": 0,

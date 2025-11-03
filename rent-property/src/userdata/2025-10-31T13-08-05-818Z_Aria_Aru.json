@@ -1,0 +1,16 @@
+{
+  "createdAt": "2025-10-31T13:08:05.819Z",
+  "booking": {
+    "checkIn": {
+      "date": "2025-10-31",
+      "time": "6:30 PM"
+    },
+    "checkOut": {
+      "date": "2025-11-01",
+      "time": "6:30 PM"
+    },
+    "guests": 1,
+    "name": "Aria Aru",
+    "mobile": "1234566728901"
+  }
+}

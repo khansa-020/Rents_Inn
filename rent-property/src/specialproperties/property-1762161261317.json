@@ -1,0 +1,26 @@
+{
+  "id": 1762161261317,
+  "name": "Dream Rent House",
+  "contact": "03336787123",
+  "email": "admin@gmail.com",
+  "location": "islamaad",
+  "sector": "F-9",
+  "description": "Two Furnished rooms , with kitchen and Lawn",
+  "priceType": "Per Day",
+  "mediaType": "imageGallery",
+  "highlight": true,
+  "discountEnabled": true,
+  "discountPercent": 30,
+  "priceRegular": "95000",
+  "price": "66500",
+  "priceDiscounted": "66500",
+  "priceNote": "Available for Rent",
+  "images": [
+    "/uploads/1762161261310-img1.jpeg",
+    "/uploads/1762161261313-img2.jpeg",
+    "/uploads/1762161261315-img3.jpeg"
+  ],
+  "video": null,
+  "poster": null,
+  "createdAt": "2025-11-03T09:14:21.317Z"
+}

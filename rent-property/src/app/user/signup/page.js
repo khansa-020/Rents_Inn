@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
+import toast, { Toaster } from 'react-hot-toast' // ✅ added
 
 export default function SignupPage() {
   const [email, setEmail] = useState('')
@@ -15,15 +16,23 @@ export default function SignupPage() {
     })
 
     if (res.ok) {
-      alert('Signup successful. Please login.')
+      toast.success('Signup successful. Please login.') // ✅ toast instead of alert
       router.push('/user/login')  // ✅ updated path
     } else {
-      alert('Signup failed.')
+      toast.error('Signup failed.') // ✅ toast instead of alert
     }
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-slate-950 p-4">
+    <div className="min-h-screen flex items-center justify-center bg-slate-950 p-4">       
+            <button
+              onClick={() => router.push('/')}
+              className="absolute top-8 right-12 text-[#01F5FF] hover:underline text-sm"
+            >
+              ⬅ Back to site
+            </button>
+          
+      <Toaster /> {/* ✅ toaster added */}
       <div className="w-full max-w-sm rounded-xl border border-slate-700 bg-slate-900 p-6 shadow-xl">
         <h1 className="text-2xl font-semibold text-white mb-1">Sign Up</h1>
         <p className="text-slate-400 text-sm mb-4">Create a new account</p>

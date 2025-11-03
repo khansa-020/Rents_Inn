@@ -115,7 +115,7 @@ export default function PropertiesSection() {
   }
 
   
-  // ✅ Fetch properties from API
+  //  Fetch properties from API
 const [properties, setProperties] = useState([])
 const [showAll, setShowAll] = useState(false)
 
@@ -134,7 +134,10 @@ useEffect(() => {
   fetchProperties()
 }, [])
  
-
+//check 
+const simpleProperties = properties.filter(
+    p => !p.highlight && !p.discountPercent
+  )
 
   return (
     <>
@@ -145,8 +148,11 @@ useEffect(() => {
             <div className="w-16 h-0.5 bg-[#01F5FF] mx-auto mb-6 lg:mb-8"></div>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-           {(showAll ? properties : properties.slice(0, 3)).map((property, index) => {
+<div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            {(showAll ? properties : simpleProperties.slice(0, 3)).map((property, index) => {
+              
+          // <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          //  {(showAll ? properties : properties.slice(0, 3)).map((property, index) => {
               const isGallery = property.mediaType === 'imageGallery'
               const isVideo = property.mediaType === 'video'
               const isHighlight = !!property.highlight

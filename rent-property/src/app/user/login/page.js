@@ -2,7 +2,7 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { useAuth } from '../../../context/AuthContext'  // ✅ Add this line
-
+import toast, { Toaster } from 'react-hot-toast' // ✅ Toaster added
 
 export default function LoginPage() {
   const [email, setEmail] = useState('')
@@ -12,7 +12,6 @@ export default function LoginPage() {
   const router = useRouter()
 
   const { login } = useAuth()  // ✅ Destructure login function
-
 
   const handleLogin = async (e) => {
     e.preventDefault()
@@ -27,42 +26,53 @@ export default function LoginPage() {
       })
 
       const data = await res.json()
-       console.log('API response:', data)
+      console.log('API response:', data)
       setIsChecking(false)
 
+      if (res.ok) {
+        // ✅ Save JWT token to localStorage and cookies
+        if (data.token) {
+          localStorage.setItem('token', data.token);
+          console.log('Token saved:', data.token);
+          document.cookie = `token=${data.token}; path=/; max-age=3600;`;
+          console.log('Token saved in cookie and localStorage');
+        } else {
+          console.log('Token missing in response');
+        }
 
-    if (res.ok) {
-// ✅ Save JWT token to localStorage and cookies
-  if (data.token) {
-    localStorage.setItem('token', data.token);
-    console.log('Token saved:', data.token);
-    document.cookie = `token=${data.token}; path=/; max-age=3600;`;
-    console.log('Token saved in cookie and localStorage');
-  } else {
-    console.log('Token missing in response');
-  }
+        toast.success('Login successful!') // ✅ Toast on success
+
         setTimeout(() => {
-    if (data.role === 'admin') {
-      localStorage.setItem('role', data.role); // ✅ save role
-      router.push('/admin');
-    } else {
-      login(data.user);
-      router.push('/user/dashboard');
-    }
-  }, 300); // 0.3 second delay fixes the jump
+          if (data.role === 'admin') {
+            localStorage.setItem('role', data.role); // ✅ save role
+            router.push('/admin');
+          } else {
+            login(data.user);
+            router.push('/user/dashboard');
+          }
+        }, 300); // 0.3 second delay fixes the jump
 
       } else {
         setError('Invalid email or password.')
+        toast.error('Invalid email or password!') // ✅ Toast on error
       }
+
     } catch (err) {
       setIsChecking(false)
       setError('Something went wrong. Please try again.')
+      toast.error('Something went wrong. Please try again.') // ✅ Toast on catch
     }
   }
-  
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-slate-900 p-4">
+       <button
+              onClick={() => router.push('/')}
+              className="absolute top-8 right-12 text-[#01F5FF] hover:underline text-sm"
+            >
+              ⬅ Back to site
+            </button>
+      <Toaster /> {/* ✅ Added toaster */}
       <div className="w-full max-w-sm rounded-xl border border-slate-700 bg-slate-800 p-6 shadow-2xl">
         <h1 className="text-white text-2xl font-semibold mb-2 text-center">
           Login

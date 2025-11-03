@@ -44,34 +44,22 @@ export default function AddPropertyPage() {
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    // ✅ CHECKS
-
-    // Check name (at least 3 chars)
-    if (newProperty.name.trim().length < 3) {
+    if (newProperty.name.trim().length < 5) {
       toast.error('Name must be at least 3 characters')
       return
     }
 
-    // Phone regex Pakistan (03xxxxxxxxx)
     const phoneRegex = /^03[0-9]{9}$/
     if (!phoneRegex.test(newProperty.contact)) {
       toast.error('Phone must be valid Pakistani number (03XXXXXXXXX)')
       return
     }
 
-    // Ensure not both highlight & discount
-    if (newProperty.highlight && newProperty.discountEnabled) {
-      toast.error('Choose only one: Highlight OR Discount')
-      return
-    }
-
-    // If discount enabled ensure % and price present
     if (newProperty.discountEnabled && (!newProperty.discountPercent || !newProperty.priceRegular)) {
-      toast.error('Enter discount percent and regular price')
+      toast.error('Enter discount percent & regular price')
       return
     }
 
-    // Required fields check
     const requiredFields = [
       'name', 'email', 'contact', 'location', 'sector', 'description', 'priceType'
     ]
@@ -83,18 +71,16 @@ export default function AddPropertyPage() {
       }
     }
 
-    // Image/video requirement
     if (newProperty.mediaType === 'imageGallery' && newProperty.images.length === 0) {
       toast.error('Please upload at least 1 image')
       return
     }
 
     if (newProperty.mediaType === 'video' && (!newProperty.video || !newProperty.poster)) {
-      toast.error('Please upload video and poster image')
+      toast.error('Please upload video & poster image')
       return
     }
 
-    // ✅ FormData continues (your code)
     const formData = new FormData()
     formData.append('mediaType', newProperty.mediaType)
     formData.append('name', newProperty.name)
@@ -156,8 +142,8 @@ export default function AddPropertyPage() {
 
   return (
     <>
-      <Toaster position="top-right" />  {/* ✅ toaster UI */}
-    <div className='bg-slate-900'>
+      <Toaster position="top-right" />  
+      <div className='bg-slate-900'>
       <div className="flex justify-end px-8 pt-6">
         <Link
           href="/"
@@ -171,6 +157,7 @@ export default function AddPropertyPage() {
         <h1 className="text-2xl font-bold mb-6">Add New Property</h1>
 
         <form onSubmit={handleSubmit} className="space-y-6">
+
           {/* Media Type */}
           <div>
             <label className="block mb-1 text-sm text-slate-300">Media Type</label>
@@ -245,7 +232,7 @@ export default function AddPropertyPage() {
             />
           </div>
 
-          {/* ✅ Price Type Dropdown */}
+          {/* Price Type */}
           <div>
             <label className="block mb-1 text-sm text-slate-300">Price Type</label>
             <select
@@ -259,173 +246,186 @@ export default function AddPropertyPage() {
             </select>
           </div>
 
-         
-        {/* Media Upload */}
-        {newProperty.mediaType === 'imageGallery' && (
+          {/* Media Upload */}
+          {newProperty.mediaType === 'imageGallery' && (
+            <div>
+              <label className="block mb-1 text-sm text-slate-300">Upload Images</label>
+              <input
+                type="file"
+                accept="image/*"
+                multiple
+                onChange={handleImageSelect}
+                className="w-full rounded border border-slate-600 bg-slate-800 px-3 py-2 text-white"
+                required
+              />
+              {newProperty.images.length > 0 && (
+                <p className="text-xs text-slate-400 mt-1">
+                  {newProperty.images.length} file(s) selected
+                </p>
+              )}
+            </div>
+          )}
+
+          {newProperty.mediaType === 'video' && (
+            <>
+              <div>
+                <label className="block mb-1 text-sm text-slate-300">Upload Video</label>
+                <input
+                  type="file"
+                  accept="video/*"
+                  onChange={handleVideoSelect}
+                  className="w-full rounded border border-slate-600 bg-slate-800 px-3 py-2 text-white"
+                  required
+                />
+                {newProperty.video && (
+                  <p className="text-xs text-slate-400 mt-1">{newProperty.video.name} selected</p>
+                )}
+              </div>
+
+              <div>
+                <label className="block mb-1 text-sm text-slate-300">Upload Poster Image</label>
+                <input
+                  type="file"
+                  accept="image/*"
+                  onChange={handlePosterSelect}
+                  className="w-full rounded border border-slate-600 bg-slate-800 px-3 py-2 text-white"
+                  required
+                />
+                {newProperty.poster && (
+                  <p className="text-xs text-slate-400 mt-1">{newProperty.poster.name} selected</p>
+                )}
+              </div>
+            </>
+          )}
+
+          {/* Description */}
           <div>
-            <label className="block mb-1 text-sm text-slate-300">Upload Images</label>
-            <input
-              type="file"
-              accept="image/*"
-              multiple
-              onChange={handleImageSelect}
-              className="w-full rounded border border-slate-600 bg-slate-800 px-3 py-2 text-white"
+            <label className="block mb-1 text-sm text-slate-300">Description</label>
+            <textarea
+              value={newProperty.description}
+              onChange={e => setNewProperty({ ...newProperty, description: e.target.value })}
+              rows={3}
+              className="w-full rounded border border-slate-600 bg-slate-800 px-3 py-2 text-white outline-none focus:ring-2 focus:ring-[#01F5FF]"
               required
             />
-            {newProperty.images.length > 0 && (
-              <p className="text-xs text-slate-400 mt-1">{newProperty.images.length} file(s) selected</p>
-            )}
           </div>
-        )}
 
-       {newProperty.mediaType === 'video' && (
-  <>
-    {/* Upload Video */}
-    <div>
-      <label className="block mb-1 text-sm text-slate-300">Upload Video</label>
-      <input
-        type="file"
-        accept="video/*"
-        onChange={handleVideoSelect}
-        className="w-full rounded border border-slate-600 bg-slate-800 px-3 py-2 text-white"
-        required
-      />
-      {newProperty.video && (
-        <p className="text-xs text-slate-400 mt-1">{newProperty.video.name} selected</p>
-      )}
-    </div>
+          {/* ✅ Highlight Logic Updated */}
+          <div className="flex items-center gap-2">
+            <input
+              id="highlight"
+              type="checkbox"
+              checked={newProperty.highlight}
+              onChange={(e) => {
+                const isChecked = e.target.checked;
+                setNewProperty(prev => ({
+                  ...prev,
+                  highlight: isChecked,
+                  discountEnabled: isChecked ? true : false
+                }));
+              }}
+              className="rounded border border-slate-600 bg-slate-800 text-[#01F5FF] focus:ring-2 focus:ring-[#01F5FF]"
+            />
+            <label htmlFor="highlight" className="text-sm text-slate-300">
+              Highlight this property
+            </label>
+          </div>
 
-    {/* Upload Poster */}
-    <div>
-      <label className="block mb-1 text-sm text-slate-300">Upload Poster Image</label>
-      <input
-        type="file"
-        accept="image/*"
-        onChange={handlePosterSelect}
-        className="w-full rounded border border-slate-600 bg-slate-800 px-3 py-2 text-white"
-        required
-      />
-      {newProperty.poster && (
-        <p className="text-xs text-slate-400 mt-1">{newProperty.poster.name} selected</p>
-      )}
-    </div>
-  </>
-)}
+          {/* ✅ Discount Logic Updated */}
+          <div className="flex items-center gap-2">
+            <input
+              id="discountEnabled"
+              type="checkbox"
+              checked={newProperty.discountEnabled}
+              onChange={(e) => {
+                const isChecked = e.target.checked;
+                setNewProperty(prev => ({
+                  ...prev,
+                  discountEnabled: isChecked,
+                  highlight: isChecked ? true : false
+                }));
+              }}
+              className="rounded border border-slate-600 bg-slate-800 text-[#01F5FF] focus:ring-2 focus:ring-[#01F5FF]"
+            />
+            <label htmlFor="discountEnabled" className="text-sm text-slate-300">
+              Apply Discount
+            </label>
+          </div>
 
+          {newProperty.discountEnabled && (
+            <>
+              <div>
+                <label className="block mb-1 text-sm text-slate-300">Discount Percent</label>
+                <input
+                  type="number"
+                  min={0}
+                  max={100}
+                  value={newProperty.discountPercent}
+                  onChange={e => setNewProperty({ ...newProperty, discountPercent: Number(e.target.value) })}
+                  className="w-full rounded border border-slate-600 bg-slate-800 px-3 py-2 text-white outline-none focus:ring-2 focus:ring-[#01F5FF]"
+                />
+              </div>
 
-        {/* Description */}
-        <div>
-          <label className="block mb-1 text-sm text-slate-300">Description</label>
-          <textarea
-            value={newProperty.description}
-            onChange={e => setNewProperty({ ...newProperty, description: e.target.value })}
-            rows={3}
-            className="w-full rounded border border-slate-600 bg-slate-800 px-3 py-2 text-white outline-none focus:ring-2 focus:ring-[#01F5FF]"
-            required
-          />
-        </div>
+              <div>
+                <label className="block mb-1 text-sm text-slate-300">Discounted Price</label>
+                <input
+                  type="text"
+                  value={newProperty.priceDiscounted}
+                  onChange={e => setNewProperty({ ...newProperty, priceDiscounted: e.target.value })}
+                  className="w-full rounded border border-slate-600 bg-slate-800 px-3 py-2 text-white outline-none focus:ring-2 focus:ring-[#01F5FF]"
+                />
+              </div>
 
-        {/* Highlight */}
-        <div className="flex items-center gap-2">
-          <input
-            id="highlight"
-            type="checkbox"
-            checked={newProperty.highlight}
-            onChange={e => setNewProperty({ ...newProperty, highlight: e.target.checked })}
-            className="rounded border border-slate-600 bg-slate-800 text-[#01F5FF] focus:ring-2 focus:ring-[#01F5FF]"
-          />
-          <label htmlFor="highlight" className="text-sm text-slate-300">
-            Highlight this property
-          </label>
-        </div>
+              <div>
+                <label className="block mb-1 text-sm text-slate-300">Regular Price</label>
+                <input
+                  type="text"
+                  value={newProperty.priceRegular}
+                  onChange={e => setNewProperty({ ...newProperty, priceRegular: e.target.value })}
+                  className="w-full rounded border border-slate-600 bg-slate-800 px-3 py-2 text-white outline-none focus:ring-2 focus:ring-[#01F5FF]"
+                />
+              </div>
+            </>
+          )}
 
-        {/* Discount Toggle */}
-        <div className="flex items-center gap-2">
-          <input
-            id="discountEnabled"
-            type="checkbox"
-            checked={newProperty.discountEnabled}
-            onChange={e => setNewProperty({ ...newProperty, discountEnabled: e.target.checked })}
-            className="rounded border border-slate-600 bg-slate-800 text-[#01F5FF] focus:ring-2 focus:ring-[#01F5FF]"
-          />
-          <label htmlFor="discountEnabled" className="text-sm text-slate-300">
-            Apply Discount
-          </label>
-        </div>
+          <div>
+            <label className="block mb-1 text-sm text-slate-300"> Price</label>
+            <input
+              type="text"
+              value={newProperty.price}
+              onChange={e => setNewProperty({ ...newProperty, price: e.target.value })}
+              className="w-full rounded border border-slate-600 bg-slate-800 px-3 py-2 text-white outline-none focus:ring-2 focus:ring-[#01F5FF]"
+            />
+          </div>
 
-        {newProperty.discountEnabled && (
-          <>
-            <div>
-              <label className="block mb-1 text-sm text-slate-300">Discount Percent</label>
-              <input
-                type="number"
-                min={0}
-                max={100}
-                value={newProperty.discountPercent}
-                onChange={e => setNewProperty({ ...newProperty, discountPercent: Number(e.target.value) })}
-                className="w-full rounded border border-slate-600 bg-slate-800 px-3 py-2 text-white outline-none focus:ring-2 focus:ring-[#01F5FF]"
-              />
-            </div>
+          <div>
+            <label className="block mb-1 text-sm text-slate-300">Price Note</label>
+            <input
+              type="text"
+              value={newProperty.priceNote}
+              onChange={e => setNewProperty({ ...newProperty, priceNote: e.target.value })}
+              className="w-full rounded border border-slate-600 bg-slate-800 px-3 py-2 text-white outline-none focus:ring-2 focus:ring-[#01F5FF]"
+            />
+          </div>
 
-            <div>
-              <label className="block mb-1 text-sm text-slate-300">Discounted Price</label>
-              <input
-                type="text"
-                value={newProperty.priceDiscounted}
-                onChange={e => setNewProperty({ ...newProperty, priceDiscounted: e.target.value })}
-                className="w-full rounded border border-slate-600 bg-slate-800 px-3 py-2 text-white outline-none focus:ring-2 focus:ring-[#01F5FF]"
-              />
-            </div>
-            
-        <div>
-          <label className="block mb-1 text-sm text-slate-300">Regular Price</label>
-          <input
-            type="text"
-            value={newProperty.priceRegular}
-            onChange={e => setNewProperty({ ...newProperty, priceRegular: e.target.value })}
-            className="w-full rounded border border-slate-600 bg-slate-800 px-3 py-2 text-white outline-none focus:ring-2 focus:ring-[#01F5FF]"
-          />
-        </div>
-          </>
-        )}
-
-        <div>
-          <label className="block mb-1 text-sm text-slate-300"> Price</label>
-          <input
-            type="text"
-            value={newProperty.price}
-            onChange={e => setNewProperty({ ...newProperty, price: e.target.value })}
-            className="w-full rounded border border-slate-600 bg-slate-800 px-3 py-2 text-white outline-none focus:ring-2 focus:ring-[#01F5FF]"
-          />
-        </div>
-
-        <div>
-          <label className="block mb-1 text-sm text-slate-300">Price Note</label>
-          <input
-            type="text"
-            value={newProperty.priceNote}
-            onChange={e => setNewProperty({ ...newProperty, priceNote: e.target.value })}
-            className="w-full rounded border border-slate-600 bg-slate-800 px-3 py-2 text-white outline-none focus:ring-2 focus:ring-[#01F5FF]"
-          />
-        </div>
-
-        <div className="flex items-center gap-4 pt-4">
-        <button
-          type="submit"
-          className="bg-[#01F5FF] text-black font-medium px-6 py-3 rounded-md hover:bg-cyan-400 transition"
-        >
-          Save Property
-        </button>
-         <Link
-              href="/user/dashboard" // change this to where you want cancel to go
+          <div className="flex items-center gap-4 pt-4">
+            <button
+              type="submit"
+              className="bg-[#01F5FF] text-black font-medium px-6 py-3 rounded-md hover:bg-cyan-400 transition"
+            >
+              Save Property
+            </button>
+            <Link
+              href="/user/dashboard"
               className="bg-slate-700 text-white font-medium px-6 py-3 rounded-md hover:bg-slate-600 transition"
             >
               Cancel
             </Link>
-            </div>
-      </form>
-    </main>
+          </div>
+
+        </form>
+      </main>
     </div>
-      </>     
+  </>
   )
 }
