@@ -333,18 +333,19 @@ useEffect(() => {
 
                   <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                     {!isHighlight ? (
-                      <span className="text-slate-900 font-semibold text-sm sm:text-base">From {property.price}</span>
+                      <span className="text-slate-900 font-semibold text-sm sm:text-base">PKR {property.price} / {property.priceType}</span>
                     ) : (
                       <div className="space-y-1">
                         <div className="flex flex-wrap items-center gap-3">
-                          <span className="text-slate-500 line-through text-sm">Regular price {property.priceRegular}</span>
+                          <span className="text-slate-500 line-through text-sm"> PKR {property.price} / {property.priceType}</span>
+                          {/* <span className="text-slate-500 line-through text-sm">PKR {property.price} / {property.priceType}</span> */}
                           <span className="inline-flex items-center rounded-full border border-emerald-200 bg-emerald-50 px-2.5 py-0.5 text-emerald-700 text-xs font-semibold">
                             {property.discountPercent}% OFF
                           </span>
                         </div>
                         <div className="flex items-baseline gap-2">
                           <span className="text-xl sm:text-2xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-[#01F5FF] via-cyan-500 to-emerald-400">
-                            {property.priceDiscounted}
+                              PKR {property.priceDiscounted} / {property.priceType}
                           </span>
                           <span className="text-slate-500 text-sm">now</span>
                         </div>

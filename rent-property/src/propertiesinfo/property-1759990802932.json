@@ -1,6 +1,6 @@
 {
   "id": 1759990802932,
-  "name": "4 BedRoom Luxury Apartment",
+  "name": "Luxury Apartment",
   "contact": "031222583405",
   "email": "IT@gmail.com",
   "location": "islamabad",
@@ -10,8 +10,8 @@
   "highlight": true,
   "discountEnabled": true,
   "discountPercent": 50,
-  "priceRegular": "20000",
-  "price": "",
+  "priceType": "Year",
+  "price": "20000",
   "priceDiscounted": "10000",
   "priceNote": "Available",
   "images": [

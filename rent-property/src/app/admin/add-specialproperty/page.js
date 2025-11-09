@@ -23,29 +23,28 @@ export default function AddPropertyPage() {
     highlight: false,
     discountEnabled: false,
     discountPercent: '',
-    priceRegular: '',
     priceDiscounted: '',
     price: '',
     priceNote: '',
-    priceType: 'Per Day'
+    priceType: 'Month'
   })
 
   // auto discount
   useEffect(() => {
-    if (newProperty.discountEnabled && newProperty.priceRegular && newProperty.discountPercent) {
-      const r = parseFloat(newProperty.priceRegular)
+    if (newProperty.discountEnabled && newProperty.price && newProperty.discountPercent) {
+      const r = parseFloat(newProperty.price)
       const d = parseFloat(newProperty.discountPercent)
       if (!isNaN(r) && !isNaN(d)) {
         const discounted = r - (r * d) / 100
         setNewProperty(p => ({ ...p, priceDiscounted: discounted.toFixed(0) }))
       }
     }
-  }, [newProperty.priceRegular, newProperty.discountPercent, newProperty.discountEnabled])
+  }, [newProperty.price, newProperty.discountPercent, newProperty.discountEnabled])
 
   const validateForm = () => {
     const {
       name, email, contact, location, sector, description,
-      price, images, video, poster, mediaType, highlight, discountEnabled, priceRegular, discountPercent
+      price, images, video, poster, mediaType, highlight, discountEnabled, discountPercent
     } = newProperty
 
     if (!name || !email || !contact || !location || !sector || !description || !price) {
@@ -71,8 +70,8 @@ export default function AddPropertyPage() {
 
     // discount fields
     if (discountEnabled) {
-      if (!priceRegular || !discountPercent) {
-        toast.error('Enter Regular Price & Discount %')
+      if (!price || !discountPercent) {
+        toast.error('Enter Price & Discount %')
         return false
       }
       if (isNaN(priceRegular) || isNaN(discountPercent)) {
@@ -153,9 +152,9 @@ export default function AddPropertyPage() {
           <div>
             <label className="text-sm">Price Type</label>
             <select value={newProperty.priceType} onChange={e=>s('priceType',e.target.value)} className="w-full border bg-slate-800 p-2 rounded">
-              <option>Per Day</option>
-              <option>Per Month</option>
-              <option>Per Year</option>
+              <option>Day</option>
+              <option>Month</option>
+              <option>Year</option>
             </select>
           </div>
 
@@ -192,7 +191,6 @@ export default function AddPropertyPage() {
           {newProperty.discountEnabled && (
             <>
               <input type="number" placeholder="Discount %" value={newProperty.discountPercent} onChange={e=>s('discountPercent',e.target.value)} className="w-full border bg-slate-800 p-2 rounded" />
-              <input type="number" placeholder="Regular Price" value={newProperty.priceRegular} onChange={e=>s('priceRegular',e.target.value)} className="w-full border bg-slate-800 p-2 rounded" />
               <input type="number" placeholder="Discounted Price" value={newProperty.priceDiscounted} onChange={e=>s('priceDiscounted',e.target.value)} className="w-full border bg-slate-800 p-2 rounded" />
             </>
           )}

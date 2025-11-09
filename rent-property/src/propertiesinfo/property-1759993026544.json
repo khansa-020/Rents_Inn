@@ -1,6 +1,7 @@
 {
     "mediaType": "imageGallery",
-    "highlight": false,
+    "highlight": true,
+    "discountEnabled": true,
     "discountPercent": 20,
     "priceNote": "Limited Time",
     "poster": "/videos/villa-poster.jpg",
@@ -11,10 +12,11 @@
       "/uploads/img8.jpeg"
     ],
     "name": "Luxury Beachfront Villa",
-    "location": "Dubai Marina, UAE",
+    "location": "Islamabad",
+    "sector": "E-11",
     "description": "A stunning 5-bedroom villa with private pool and sea view.",
-    "price": "$1,200 ",
-    "priceRegular": "$1,500 ",
-    "priceDiscounted": "$1,200",
+    "price": "20000",
+    "priceType": "Night",
+    "priceDiscounted": "10000",
     "createdAt": "2025-10-09T08:00:00.000Z"
   }

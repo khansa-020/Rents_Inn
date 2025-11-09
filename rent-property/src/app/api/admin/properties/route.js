@@ -1,3 +1,4 @@
+//real file
 import { NextResponse } from 'next/server'
 import fs from 'fs/promises'
 import path from 'path'
@@ -117,10 +118,10 @@ export async function POST(request) {
       highlight: formData.get('highlight') === 'true',
       discountEnabled: formData.get('discountEnabled') === 'true',
       discountPercent: Number(formData.get('discountPercent')) || 0,
-      priceRegular: formData.get('priceRegular'),
-      // price: formData.get('price'),
-      priceDiscounted: formData.get('priceDiscounted') || formData.get('price') || '',
-      // priceDiscounted: formData.get('priceDiscounted'),
+      // priceRegular: formData.get('priceRegular'),
+      price: formData.get('price'),
+      // priceDiscounted: formData.get('priceDiscounted') || formData.get('price') || '',
+      priceDiscounted: formData.get('priceDiscounted'),
       priceNote: formData.get('priceNote'),
       images: imageUrls,
       video: videoUrl,
