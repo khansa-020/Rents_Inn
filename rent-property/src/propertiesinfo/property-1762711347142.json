@@ -1,0 +1,24 @@
+{
+  "id": 1762711347142,
+  "name": "Furnished Rent House",
+  "contact": "03251234567",
+  "email": "admin@gmail.com",
+  "location": "islamabad",
+  "sector": "G-13",
+  "description": "Furnished , big playarea tv lounge and gallery, Sunshine glass work",
+  "priceType": "Month",
+  "mediaType": "imageGallery",
+  "highlight": false,
+  "discountEnabled": false,
+  "discountPercent": 0,
+  "price": "75000",
+  "priceDiscounted": "72750",
+  "priceNote": "offer Available",
+  "images": [
+    "/uploads/1762711347135-rent.jpeg",
+    "/uploads/1762711347137-rent1.jpeg"
+  ],
+  "video": null,
+  "poster": null,
+  "createdAt": "2025-11-09T18:02:27.142Z"
+}

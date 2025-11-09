@@ -1,0 +1,23 @@
+{
+  "id": 1762702425283,
+  "name": "plot i-11 for sale",
+  "contact": "03115678954",
+  "email": "asma@gmail.com",
+  "location": "islamabad",
+  "sector": "i-11",
+  "description": "asdsf sdfgh lkjhg asdf wertyu iuytre wertyu uytre cvbn mnbvcx xcvbedcx tgbv ujhnedscx wsx",
+  "priceType": "Day",
+  "mediaType": "imageGallery",
+  "highlight": true,
+  "discountEnabled": true,
+  "discountPercent": 15,
+  "price": "50000",
+  "priceDiscounted": "42500",
+  "priceNote": "Sold out",
+  "images": [
+    "/uploads/1762702425281-2022-10-17.png"
+  ],
+  "video": null,
+  "poster": null,
+  "createdAt": "2025-11-09T15:33:45.283Z"
+}

@@ -22,7 +22,7 @@ export default function AddPropertyPage() {
     highlight: false,
     discountEnabled: false,
     discountPercent: '',
-    priceRegular: '',
+    // priceRegular: '',
     priceDiscounted: '',
     price: '',
     priceNote: '',
@@ -31,15 +31,15 @@ export default function AddPropertyPage() {
 
   // ✅ Auto-calculate discounted price logic
   useEffect(() => {
-    if (newProperty.discountEnabled && newProperty.priceRegular && newProperty.discountPercent) {
-      const regular = parseFloat(newProperty.priceRegular)
+    if (newProperty.discountEnabled && newProperty.price&& newProperty.discountPercent) {
+      const price = parseFloat(newProperty.price)
       const discount = parseFloat(newProperty.discountPercent)
-      if (!isNaN(regular) && !isNaN(discount)) {
-        const discounted = regular - (regular * discount) / 100
+      if (!isNaN(price) && !isNaN(discount)) {
+        const discounted = price - (price  * discount) / 100
         setNewProperty(prev => ({ ...prev, priceDiscounted: discounted.toFixed(0) }))
       }
     }
-  }, [newProperty.priceRegular, newProperty.discountPercent, newProperty.discountEnabled])
+  }, [newProperty.price, newProperty.discountPercent, newProperty.discountEnabled])
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -55,13 +55,13 @@ export default function AddPropertyPage() {
       return
     }
 
-    if (newProperty.discountEnabled && (!newProperty.discountPercent || !newProperty.priceRegular)) {
-      toast.error('Enter discount percent & regular price')
+    if (newProperty.discountEnabled && (!newProperty.discountPercent || !newProperty.price)) {
+      toast.error('Enter discount percent &  price')
       return
     }
 
     const requiredFields = [
-      'name', 'email', 'contact', 'location', 'sector', 'description', 'priceType'
+      'name', 'email', 'contact', 'location', 'sector', 'description','price' , 'priceType'
     ]
 
     for (let field of requiredFields) {
@@ -92,7 +92,7 @@ export default function AddPropertyPage() {
     formData.append('highlight', newProperty.highlight)
     formData.append('discountEnabled', newProperty.discountEnabled)
     formData.append('discountPercent', newProperty.discountPercent)
-    formData.append('priceRegular', newProperty.priceRegular)
+    // formData.append('priceRegular', newProperty.priceRegular)
     formData.append('price', newProperty.price)
     formData.append('priceDiscounted', newProperty.priceDiscounted)
     formData.append('priceNote', newProperty.priceNote)
@@ -240,9 +240,9 @@ export default function AddPropertyPage() {
               onChange={e => setNewProperty({ ...newProperty, priceType: e.target.value })}
               className="w-full rounded border border-slate-600 bg-slate-800 px-3 py-2 text-white focus:ring-2 focus:ring-[#01F5FF]"
             >
-              <option value="Per Day">Per Day</option>
-              <option value="Per Month">Per Month</option>
-              <option value="Per Year">Per Year</option>
+              <option value="Day">Per Day</option>
+              <option value="Month">Per Month</option>
+              <option value="Year">Per Year</option>
             </select>
           </div>
 
@@ -376,7 +376,7 @@ export default function AddPropertyPage() {
                 />
               </div>
 
-              <div>
+              {/* <div>
                 <label className="block mb-1 text-sm text-slate-300">Regular Price</label>
                 <input
                   type="text"
@@ -384,7 +384,7 @@ export default function AddPropertyPage() {
                   onChange={e => setNewProperty({ ...newProperty, priceRegular: e.target.value })}
                   className="w-full rounded border border-slate-600 bg-slate-800 px-3 py-2 text-white outline-none focus:ring-2 focus:ring-[#01F5FF]"
                 />
-              </div>
+              </div> */}
             </>
           )}
 

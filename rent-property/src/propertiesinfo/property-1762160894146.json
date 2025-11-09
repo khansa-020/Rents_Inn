@@ -4,14 +4,14 @@
   "contact": "03225824025",
   "email": "kh@gmail.com",
   "location": "islamabad",
-  "sector": "G-10",
+  "sector": "G-13",
   "description": "2 Bedrooms with extraordinary Kitchen and Lawn Tv lounge is too big withairy and cozy styling",
-  "priceType": "Per Day",
+  "priceType": "Day",
   "mediaType": "imageGallery",
   "highlight": true,
   "discountEnabled": true,
-  "discountPercent": 20,
-  "priceRegular": "80000",
+  "discountPercent": 30,
+  "price": "80000",
   "priceDiscounted": "64000",
   "priceNote": "Avalable for Rent",
   "images": [
@@ -21,5 +21,6 @@
   ],
   "video": null,
   "poster": null,
-  "createdAt": "2025-11-03T09:08:14.146Z"
+  "createdAt": "2025-11-03T09:08:14.146Z",
+  "updatedAt": "2025-11-09T18:12:05.949Z"
 }
