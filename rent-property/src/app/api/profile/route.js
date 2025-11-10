@@ -18,7 +18,9 @@ export async function PUT(request) {
     if (index === -1)
       return NextResponse.json({ ok: false, error: 'User not found' }, { status: 404 })
 
-    data[index].profile = { ...data[index].profile, ...profile }
+    // data[index].profile = { ...data[index].profile, ...profile }
+    data[index] = { ...data[index], ...profile }
+
 
     fs.writeFileSync(filePath, JSON.stringify(data, null, 2))
 
@@ -57,3 +59,5 @@ export async function GET(request) {
     return NextResponse.json({ ok: false, error: 'Internal Server Error' }, { status: 500 })
   }
 }
+
+

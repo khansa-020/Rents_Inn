@@ -217,7 +217,14 @@ const logout = () => {
             </p>
           </div>
           <div className="flex items-center gap-2 sm:gap-3">
-            <Link
+             <Link
+              href="/admin/operations" 
+              className="hidden sm:inline text-slate-300 hover:text-[#01F5FF] transition-colors text-sm"
+             >
+              Operations
+            </Link>
+
+            {/* <Link
               href="/admin/add-specialproperty" 
               className="hidden sm:inline text-slate-300 hover:text-[#01F5FF] transition-colors text-sm"
              >
@@ -229,7 +236,7 @@ const logout = () => {
               className="hidden sm:inline text-slate-300 hover:text-[#01F5FF] transition-colors text-sm"
              >
               Add Property
-            </Link>
+            </Link> */}
 
             <Link
               href="/"
