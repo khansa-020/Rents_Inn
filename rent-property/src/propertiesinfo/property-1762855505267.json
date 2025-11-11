@@ -1,0 +1,24 @@
+{
+  "id": 1762855505267,
+  "name": "new property",
+  "contact": "03214563456",
+  "email": "kh@gmail.com",
+  "location": "islamabad",
+  "sector": "E-8",
+  "description": "lkjhgfds jhgf kjhg",
+  "priceType": "Per Day",
+  "mediaType": "imageGallery",
+  "highlight": true,
+  "discountEnabled": true,
+  "discountPercent": 50,
+  "price": "87000",
+  "priceDiscounted": "43500",
+  "priceNote": "Available",
+  "images": [
+    "/uploads/1762855505262-img1.jpeg",
+    "/uploads/1762855505265-img2.jpeg"
+  ],
+  "video": null,
+  "poster": null,
+  "createdAt": "2025-11-11T10:05:05.267Z"
+}
