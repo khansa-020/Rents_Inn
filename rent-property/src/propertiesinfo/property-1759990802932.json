@@ -4,14 +4,14 @@
   "contact": "031222583405",
   "email": "IT@gmail.com",
   "location": "islamabad",
-  "sector": "G-13",
+  "sector": "G-10",
   "description": "City Centre G-13 Islamabad\r\n\r\n2-bedroom apartment with one AC",
   "mediaType": "imageGallery",
   "highlight": true,
   "discountEnabled": true,
   "discountPercent": 50,
   "priceType": "Year",
-  "price": "20000",
+  "price": 40000,
   "priceDiscounted": "10000",
   "priceNote": "Available",
   "images": [
@@ -23,5 +23,6 @@
   ],
   "video": null,
   "poster": null,
-  "createdAt": "2025-10-21T04:59:20.374Z"
+  "createdAt": "2025-10-21T04:59:20.374Z",
+  "updatedAt": "2025-11-10T09:59:52.923Z"
 }

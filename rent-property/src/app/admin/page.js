@@ -348,7 +348,7 @@ const logout = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    {filteredMessages.map((m, idx) => (
+                    {filteredMessages.slice(0,5).map((m, idx) => (
                       <tr
                         key={idx}
                         className="border-b border-slate-800/60 hover:bg-slate-800/40 align-top"
@@ -379,7 +379,7 @@ const logout = () => {
 
             {/* Mobile Cards */}
             <div className="md:hidden grid grid-cols-1 gap-4">
-              {filteredMessages.map((m, idx) => (
+              {filteredMessages.slice(0,5).map((m, idx) => (
                 <article
                   key={idx}
                   className="rounded-xl border border-slate-800 bg-slate-900/40 p-4"
@@ -452,7 +452,7 @@ const logout = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    {filteredBookings.map((b, idx) => (
+                    {filteredBookings.slice(0,5).map((b, idx) => (
                       <tr
                         key={idx}
                         className="border-b border-slate-800/60 hover:bg-slate-800/40"
@@ -548,11 +548,11 @@ const logout = () => {
               <th className="text-left px-4 py-3 font-semibold text-slate-300">Discounted</th>
               <th className="text-left px-4 py-3 font-semibold text-slate-300">Note</th>
               <th className="text-left px-4 py-3 font-semibold text-slate-300">Description</th>
-              {/* <th className="text-left px-4 py-3 font-semibold text-slate-300">Images</th> */}
+              <th className="text-left px-4 py-3 font-semibold text-slate-300">Images</th>
             </tr>
           </thead>
           <tbody>
-            {filteredProperties.map((p, idx) => (
+     {filteredProperties.slice(0, 4).map((p, idx) => (
               <tr
                 key={idx}
                 className="border-b border-slate-800/60 hover:bg-slate-800/40 align-top"
@@ -565,13 +565,13 @@ const logout = () => {
                 <td className="px-4 py-3 text-slate-300">{p.sector}</td>
                 <td className="px-4 py-3 text-slate-300">{p.highlight ? 'Yes' : 'No'}</td>
                 <td className="px-4 py-3 text-slate-300">{p.discountPercent}%</td>
-                <td className="px-4 py-3 text-slate-300">{p.priceRegular}</td>
+                <td className="px-4 py-3 text-slate-300">{p.price}</td>
                 <td className="px-4 py-3 text-slate-300">{p.priceDiscounted}</td>
                 <td className="px-4 py-3 text-slate-300">{p.priceNote || '-'}</td>
                 <td className="px-4 py-3 text-slate-200 max-w-[300px]">
                   <span className="line-clamp-2">{p.description}</span>
                 </td>
-                {/* <td className="px-4 py-3">
+                <td className="px-4 py-3">
                   <div className="flex gap-2 overflow-x-auto">
                     {p.images?.filter(Boolean).map((img, i) => (
                       <img
@@ -582,7 +582,7 @@ const logout = () => {
                       />
                     ))}
                   </div>
-                </td> */}
+                </td>
               </tr>
             ))}
           </tbody>
@@ -592,7 +592,7 @@ const logout = () => {
 
     {/* Mobile Cards */}
     <div className="md:hidden grid grid-cols-1 gap-4">
-      {filteredProperties.map((p, idx) => (
+     {filteredProperties.slice(0, 5).map((p, idx) => (
         <article
           key={idx}
           className="rounded-xl border border-slate-800 bg-slate-900/40 p-4"
@@ -607,7 +607,7 @@ const logout = () => {
               <dt className="text-slate-400">Location</dt>
               <dd className="text-right">{p.location}</dd>
             </div>
-           <div className="flex justify-between gap-3">{/*added new */}
+           <div className="flex justify-between gap-3">
               <dt className="text-slate-400">Sector</dt>
               <dd className="text-right">{p.sector}</dd>
             </div>
@@ -619,10 +619,7 @@ const logout = () => {
               <dt className="text-slate-400">Discount</dt>
               <dd className="text-right">{p.discountPercent}%</dd>
             </div>
-            <div className="flex justify-between gap-3">
-              <dt className="text-slate-400">PriceRegular</dt>
-              <dd className="text-right">{p.priceRegular}</dd>
-            </div>
+            
               <div className="flex justify-between gap-3">
               <dt className="text-slate-400">Price</dt>
               <dd className="text-right">{p.price}</dd>

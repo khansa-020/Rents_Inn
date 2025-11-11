@@ -1,17 +1,17 @@
 {
   "id": 1762711147148,
-  "name": "Ten Marla House in F-9",
+  "name": "Ten Marla House in F-11",
   "contact": "03251234567",
   "email": "admin@gmail.com",
-  "location": "islamabad",
-  "sector": "F-9",
+  "location": "Islamabad",
+  "sector": "F-11",
   "description": "4 -bedrooms , gallery, open Kitchen, Cozy vibe with sunshine",
   "priceType": "Year",
   "mediaType": "imageGallery",
   "highlight": true,
   "discountEnabled": true,
-  "discountPercent": 25,
-  "price": "67000",
+  "discountPercent": 35,
+  "price": 78000,
   "priceDiscounted": "50250",
   "priceNote": "Limited offer",
   "images": [
@@ -21,5 +21,6 @@
   ],
   "video": null,
   "poster": null,
-  "createdAt": "2025-11-09T17:59:07.149Z"
+  "createdAt": "2025-11-09T17:59:07.149Z",
+  "updatedAt": "2025-11-11T08:49:29.633Z"
 }

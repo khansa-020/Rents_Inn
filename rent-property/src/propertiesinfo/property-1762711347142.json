@@ -11,7 +11,7 @@
   "highlight": false,
   "discountEnabled": false,
   "discountPercent": 0,
-  "price": "75000",
+  "price": 75000,
   "priceDiscounted": "72750",
   "priceNote": "offer Available",
   "images": [
@@ -20,5 +20,6 @@
   ],
   "video": null,
   "poster": null,
-  "createdAt": "2025-11-09T18:02:27.142Z"
+  "createdAt": "2025-11-09T18:02:27.142Z",
+  "updatedAt": "2025-11-10T09:24:05.808Z"
 }

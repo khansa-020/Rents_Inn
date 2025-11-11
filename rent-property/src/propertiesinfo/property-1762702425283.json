@@ -10,7 +10,7 @@
   "mediaType": "imageGallery",
   "highlight": true,
   "discountEnabled": true,
-  "discountPercent": 15,
+  "discountPercent": 1,
   "price": "50000",
   "priceDiscounted": "42500",
   "priceNote": "Sold out",
@@ -19,5 +19,6 @@
   ],
   "video": null,
   "poster": null,
-  "createdAt": "2025-11-09T15:33:45.283Z"
+  "createdAt": "2025-11-09T15:33:45.283Z",
+  "updatedAt": "2025-11-10T09:27:33.084Z"
 }
