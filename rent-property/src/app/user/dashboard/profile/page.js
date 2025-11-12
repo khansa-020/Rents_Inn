@@ -83,7 +83,7 @@ export default function ProfilePage() {
     >
       <div className="w-full max-w-2xl bg-slate-800/50 backdrop-blur-lg border border-slate-700/50 rounded-3xl shadow-2xl p-10 relative">
         {/* Top Gradient Line */}
-        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#01F5FF] via-blue-800 to-mint-500"></div>
+        <div className="absolute top-0 left-6 w-full h-0.5 bg-gradient-to-r from-[#01F5FF] via-purple-500 to-pink-500"></div>
 
         <h1 className="text-3xl font-bold text-center bg-gradient-to-r from-[#01F5FF] to-purple-400 bg-clip-text text-transparent mb-8">
           Edit Profile
